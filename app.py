@@ -15,6 +15,8 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = 'secret_key_for_session'  # In production, use a strong secret
+if not os.path.exists("static"):
+    os.makedirs("static")
 
 # === SQLite Setup for User Authentication ===
 def init_sqlite_db():
