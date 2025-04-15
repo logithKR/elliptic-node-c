@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECC Load Balancer</title>
+    <style>
+        /* Common Styles */
+        :root {
+            --primary: #0A8754;
+            --primary-light: #12A66B;
+            --primary-dark: #076B42;
+            --white: #FFFFFF;
+            --light-bg: #F0F8F4;
+            --gray-light: #E8F0EC;
+            --gray-border: #D1E7DD;
+            --text-dark: #333333;
+            --shadow: 0 4px 12px rgba(10, 135, 84, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        h2, h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Header */
+        .header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Form Styles */
+        form {
+            background-color: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--gray-border);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-border);
+            border-radius: 4px;
+            background-color: var(--white);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input[type="file"]:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 135, 84, 0.1);
+        }
+        
+        button[type="submit"] {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Result Section */
+        hr {
+            border: none;
+            border-top: 1px solid var(--gray-border);
+            margin: 2rem 0;
+        }
+        
+        .result-section {
+            background-color: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--gray-border);
+        }
+        
+        .result-item {
+            margin-bottom: 1rem;
+        }
+        
+        .result-item strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        textarea[readonly] {
+            background-color: var(--white);
+            resize: none;
+            font-family: monospace;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        
+        /* Chart */
+        .chart-container {
+            margin-top: 1.5rem;
+            text-align: center;
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--gray-border);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            textarea {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ECC Load Balancer</h1>
+    </div>
+    
+    <div class="container">
+        <h2>Secure Document Upload and Hashing (ECC)</h2>
+        
+        <!-- Upload Form -->
+        <form method="POST" action="/submit" enctype="multipart/form-data">
+            <label>Select a PDF or Word document:</label>
+            <input type="file" name="file" accept=".pdf,.docx" required>
+            <button type="submit">Hash & Upload</button>
+        </form>
+        
+        {% if encrypted %}
+            <hr>
+            <div class="result-section">
+                <h3>🔐 Hash Result</h3>
+                <div class="result-item">
+                    <strong>Uploaded File:</strong> 
+                    <span>{{ user }}</span>
+                </div>
+                
+                <div class="result-item">
+                    <strong>ECC Encrypted Signature:</strong>
+                    <textarea rows="5" cols="80" readonly>{{ encrypted }}</textarea>
+                </div>
+                
+                <div class="result-item">
+                    <strong>Assigned Node:</strong> 
+                    <span>{{ node }}</span>
+                </div>
+            </div>
+        {% endif %}
+        
+        {% if chart %}
+            <hr>
+            <div class="chart-container">
+                <h3>📊 Load Balancing Visualization</h3>
+                <img src="{{ url_for('static', filename=chart) }}" width="500" alt="Load balancing chart">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

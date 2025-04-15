@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ECC Load Balancer</title>
+    <style>
+        /* Common Styles */
+        :root {
+            --primary: #0A8754;
+            --primary-light: #12A66B;
+            --primary-dark: #076B42;
+            --white: #FFFFFF;
+            --light-bg: #F0F8F4;
+            --gray-light: #E8F0EC;
+            --gray-border: #D1E7DD;
+            --text-dark: #333333;
+            --shadow: 0 4px 12px rgba(10, 135, 84, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        h2 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Header */
+        .header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Form Styles */
+        form {
+            background-color: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--gray-border);
+        }
+        
+        .form-row {
+            margin-bottom: 1.2rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gray-border);
+            border-radius: 4px;
+            background-color: var(--white);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 135, 84, 0.1);
+        }
+        
+        button[type="submit"] {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            width: 100%;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .auth-links {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        
+        .auth-links a {
+            color: var(--primary);
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+        
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ECC Load Balancer</h1>
+    </div>
+    
+    <div class="container">
+        <h2>Register</h2>
+        <form method="POST">
+            <div class="form-row">
+                <label for="username">Username:</label>
+                <input id="username" name="username" type="text" required>
+            </div>
+            
+            <div class="form-row">
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="email" required>
+            </div>
+            
+            <div class="form-row">
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" required>
+            </div>
+            
+            <button type="submit">Register</button>
+        </form>
+        
+        <div class="auth-links">
+            <span>Already have an account?</span>
+            <a href="/login">Login here</a>
+        </div>
+    </div>
+</body>
+</html>

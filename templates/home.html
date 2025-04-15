@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECC Load Balancer</title>
+    <style>
+        :root {
+            --primary: #0A8754;
+            --primary-light: #12A66B;
+            --primary-dark: #076B42;
+            --white: #FFFFFF;
+            --light-bg: #F0F8F4;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .auth-buttons {
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary);
+            font-weight: bold;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--white);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .info-box {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-box h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .info-box p {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ECC Load Balancer</h1>
+        <p>Elliptic Curve Cryptography Key Management for Cloud Virtualization</p>
+        <div class="auth-buttons">
+            <a href="/login" class="btn">Login</a>
+            <a href="/register" class="btn">Register</a>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="info-box">
+            <div class="icon">🔐</div>
+            <h2>Secure Key Management</h2>
+            <p>Our system utilizes elliptic curve cryptography (ECC) to provide superior security with smaller key sizes, making it ideal for cloud environments. Manage your cryptographic keys efficiently with our intuitive interface.</p>
+        </div>
+        
+        <div class="info-box">
+            <div class="icon">⚖️</div>
+            <h2>Intelligent Load Balancing</h2>
+            <p>Distribute network traffic across multiple cloud servers efficiently. Our ECC-based load balancer ensures optimal resource utilization, preventing any single server from being overwhelmed while maximizing throughput.</p>
+        </div>
+        
+        <div class="info-box">
+            <div class="icon">☁️</div>
+            <h2>Cloud Virtualization</h2>
+            <p>Seamlessly manage your virtualized cloud infrastructure with advanced ECC key distribution. Automatically scale resources based on demand while maintaining security and performance across all nodes.</p>
+        </div>
+        
+       
+    </div>
+</body>
+</html>
